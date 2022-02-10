@@ -10,6 +10,16 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     public $testEndpoint = 'https://testcheckout.buckaroo.nl/html/';
     public $liveEndpoint = 'https://checkout.buckaroo.nl/html/';
 
+    public function getStartRecurrent()
+    {
+        return $this->getParameter('startRecurrent');
+    }
+
+    public function setStartRecurrent($value)
+    {
+        return $this->setParameter('startRecurrent', $value);
+    }
+
     public function getWebsiteKey()
     {
         return $this->getParameter('websiteKey');
@@ -100,6 +110,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         $data['Brq_returnreject'] = $this->getRejectUrl();
         $data['Brq_returnerror'] = $this->getErrorUrl();
         $data['Brq_culture'] = $this->getCulture();
+        $data['Brq_startrecurrent'] = $this->getStartRecurrent();
 
         return $data;
     }

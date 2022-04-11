@@ -122,7 +122,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         $data['Brq_culture'] = $this->getCulture();
         $data['Brq_startrecurrent'] = $this->getStartRecurrent();
         if(($value = $this->getRequestedServices())){
-            $data['Brq_requestedservices'] = $this->getRequestedServices();
+            $data['Brq_requestedservices'] = $value;
         }
 
         return $data;

@@ -15,7 +15,7 @@ class PurchaseRequest extends AbstractRequest
         $data = parent::getData();
         unset($data['Brq_payment_method']);
         unset($data['Brq_service_ideal_issuer']);
-        unset($data['Brq_requestedservices']);
+        //unset($data['Brq_requestedservices']);
 
         return $data;
     }

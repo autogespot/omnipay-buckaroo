@@ -20,6 +20,16 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('startRecurrent', $value);
     }
 
+    public function getRequestedServices()
+    {
+        return $this->getParameter('Requestedservices');
+    }
+
+    public function setRequestedServices($value)
+    {
+        $this->setParameter('Requestedservices', $value);
+    }
+
     public function getWebsiteKey()
     {
         return $this->getParameter('websiteKey');
@@ -111,6 +121,9 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         $data['Brq_returnerror'] = $this->getErrorUrl();
         $data['Brq_culture'] = $this->getCulture();
         $data['Brq_startrecurrent'] = $this->getStartRecurrent();
+        if(($value = $this->getRequestedServices())){
+            $data['Brq_requestedservices'] = $this->getRequestedServices();
+        }
 
         return $data;
     }
